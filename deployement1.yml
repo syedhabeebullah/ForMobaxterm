@@ -18,10 +18,11 @@ spec:
       - name: python-app
         image: abhishekf5/python-sample-app-demo:v1
         env:
-          - name: DB-PORT
-            valueFrom:
-              configMapRef:
-                name:test-cm
+        - name: DB-PORT
+          valueFrom:
+            configMapKeyRef:
+              name: test-cm
               key: db-port
         ports:
         - containerPort: 8000
+
